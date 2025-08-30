@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Loader</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="src/css/content-loader.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Content Loader</h1>
+        
+        <!-- Items grid section (same as index.html) -->
+        <div id="items-grid" class="items-grid">
+            <!-- Items will be dynamically inserted here -->
+        </div>
+        
+        <!-- Content loader section -->
+        <div class="content-container">
+            <div class="content-header">
+                <h2 id="content-title">Content</h2>
+                <button id="close-content" class="close-btn" aria-label="Close content">×</button>
+            </div>
+            <div id="content-area" class="content-area">
+                <!-- Dynamic content will be loaded here -->
+                <div class="loading-indicator">
+                    <div class="spinner"></div>
+                    <p>Please select content to load</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="src/js/script.js"></script>
+    <script src="src/js/content-loader.js"></script>
+</body>
+</html>
