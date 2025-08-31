@@ -113,7 +113,7 @@ function loadContent(contentId, contentName) {
     
     // Make AJAX request to get content
      //(`get-content.php?id=${encodeURIComponent(contentId)}`)
-    fetch('partials/test.html')
+    fetch('test.html')
         .then(response => {
             alert("Hey")
             if (!response.ok) {
