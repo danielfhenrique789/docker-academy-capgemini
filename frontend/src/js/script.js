@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // For demonstration, we'll use your provided JSON directly
     // In a real application, you would fetch this from an API endpoint
+    /*
     const data = {
         "items": [
             {
@@ -17,12 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             // You can add more items here
         ]
-    };
+    }; 
 
     renderItems(data.items);
+    */
 
     // Alternatively, if you want to fetch from a JSON file or API:
-    /*
+    
     fetch('items.json')
         .then(response => {
             if (!response.ok) {
@@ -37,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error fetching items:', error);
             document.getElementById('items-grid').innerHTML = '<p class="error">Failed to load items. Please try again later.</p>';
         });
-    */
+    
 });
 
 function renderItems(items) {
@@ -54,7 +56,6 @@ function renderItems(items) {
         
         // Make the entire item clickable
         itemElement.addEventListener('click', function() {
-            alert(item.url)
             window.location.href = item.url;
         });
         
