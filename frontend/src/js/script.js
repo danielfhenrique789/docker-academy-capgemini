@@ -1,30 +1,35 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // For demonstration, we'll use your provided JSON directly
-    // In a real application, you would fetch this from an API endpoint
-    /*
-    const data = {
-        "items": [
-            {
-                "item_name": "item1",
-                "item_id": "1",
-                "item_icon": "http://www.somepage.com/default_icon.png",
-                "url": "content_loader.html"
-            },
-            {
-                "item_name": "item2",
-                "item_id": "2",
-                "item_icon": "http://www.somepage.com/default_icon.png",
-                "url": "content_loader.html"
-            }
-            // You can add more items here
-        ]
-    }; 
-
-    renderItems(data.items);
-    */
-
-    // Alternatively, if you want to fetch from a JSON file or API:
     
+
+    // Read from file
+    //get_data()
+    get_data_request()
+});
+
+function get_data_request() {
+    // URL of your FastAPI endpoint
+    const apiUrl = 'http://localhost:8000/';
+
+    // Make a GET request using the Fetch API
+    fetch(apiUrl)
+        .then(response => {
+            // Check if the response was successful
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            // Parse the JSON from the response
+            return response.json();
+        })
+        .then(data => {
+            renderItems(data.items);
+        })
+        .catch(error => {
+            // Handle any errors that occurred during the fetch
+            console.error('Error fetching data:', error);
+        });
+}
+
+function get_data() {
     fetch('items.json')
         .then(response => {
             if (!response.ok) {
@@ -39,8 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error fetching items:', error);
             document.getElementById('items-grid').innerHTML = '<p class="error">Failed to load items. Please try again later.</p>';
         });
-    
-});
+}
 
 function renderItems(items) {
     const gridContainer = document.getElementById('items-grid');

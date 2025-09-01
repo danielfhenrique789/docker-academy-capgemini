@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Modify the item click behavior to load content instead of navigating
-    modifyItemClickBehavior();
+    //modifyItemClickBehavior();
 });
 
 function initContentLoader() {
@@ -113,9 +113,9 @@ function loadContent(contentId, contentName) {
     
     // Make AJAX request to get content
      //(`get-content.php?id=${encodeURIComponent(contentId)}`)
-    fetch('test.html')
+    const apiUrl = 'http://localhost:8000/';
+    fetch(apiUrl+contentId)
         .then(response => {
-            alert("Hey")
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }

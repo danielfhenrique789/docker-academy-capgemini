@@ -1,6 +1,17 @@
 version: '3.8'
 
 services:
+  fastapi_gateway:
+    build: ./api_gateway
+    container_name: fastapi-container
+    ports:
+      - "8000:80"
+    volumes:
+      - ./api_gateway:/code
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://user:password@db:5432/mydatabase
   frontend:
     build:
       context: ./frontend
@@ -10,3 +21,15 @@ services:
     volumes:
       - ./frontend:/usr/share/nginx/html:ro
     container_name: static_frontend_server
+  db:
+    image: postgres:15-alpine
+    container_name: postgres-db
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=mydatabase
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:
