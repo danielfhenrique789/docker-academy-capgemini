@@ -1,0 +1,16 @@
+{
+    "items": [
+        {
+            "item_name": "item 1",
+            "item_id": "1",
+            "item_icon": "http://www.somepage.com/default_icon.png",
+            "url": "content_loader.html?content=item1"
+        },
+        {
+            "item_name": "item 2",
+            "item_id": "2",
+            "item_icon": "http://www.somepage.com/default_icon.png",
+            "url": "content_loader.html?content=item2"
+        }
+    ]
+}
